@@ -107,11 +107,11 @@ class BST {
 }
 
 const tree = new BST();
-// tree.insertNode(20);
-// tree.insertNode(12);
-// tree.insertNode(39);
-// tree.insertNode(99);
-// tree.insertNode(9);
+tree.insertNode(10);
+tree.insertNode(32);
+tree.insertNode(6);
+tree.insertNode(11);
+tree.insertNode(17);
 
 tree.insertNodeRec(20);
 tree.insertNodeRec(12);
