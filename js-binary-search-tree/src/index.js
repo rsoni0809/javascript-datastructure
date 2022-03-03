@@ -104,14 +104,41 @@ class BST {
     };
     return isContain(this.root, value);
   }
+  dfsInOrder() {
+    let result = [];
+    if (!this.root) {
+      return;
+    }
+
+    const traverse = (node) => {
+      if (node.left) traverse(node.left);
+      result.push(node.data);
+      if (node.right) traverse(node.right);
+    };
+    traverse(this.root);
+    return result;
+  }
+  dfsPreOrder() {
+    let result = [];
+    if (!this.result) {
+      return;
+    }
+    const preTraversal = (node) => {
+      result.push(node.data);
+      if (node.left) preTraversal(node.left);
+      if (node.right) preTraversal(node.right);
+    };
+    preTraversal(this.root);
+    return result;
+  }
 }
 
 const tree = new BST();
-tree.insertNode(10);
-tree.insertNode(32);
-tree.insertNode(6);
-tree.insertNode(11);
-tree.insertNode(17);
+// tree.insertNode(20);
+// tree.insertNode(12);
+// tree.insertNode(39);
+// tree.insertNode(99);
+// tree.insertNode(9);
 
 tree.insertNodeRec(20);
 tree.insertNodeRec(12);
@@ -125,7 +152,8 @@ let minElm = tree.treeMinElm();
 console.log("MIN ELEMENT IS", minElm);
 
 let maxElm = tree.treeMaxElm();
-console.log("MAX ELEMENT IS", maxElm);
 let searchValue = 12;
 let searchedElm = tree.searchElm(99);
 console.log("Search for elm", searchValue, "is", searchedElm);
+console.log(tree.dfsInOrder());
+console.log(tree.dfsPreOrder());
